@@ -1,17 +1,18 @@
-import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import '../index.css'
 
 export default function Navbar() {
     return (
         <nav>
             <ul>
                 <li>
-                    <a href = '/'>Home</a>
+                    <NavLink exact to="/" activeClass='active'>Home</NavLink>
                 </li>
                 <li>
-                    <a href = '/about'>About</a>
+                    <NavLink axact to="/about" activeClass='active'>About</NavLink>
                 </li>
                 <li>
-                    <a href = '/contact'>Contact</a>
+                    <NavLink axact to="/contact" activeClass='active'>Contact</NavLink>
                 </li>
             </ul>
         </nav>
