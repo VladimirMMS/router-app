@@ -15,19 +15,31 @@ export default function CategoryPage() {
     const name = query.get('name') || 'romantic'
 
     const handleChange = (e) => {
+       
         setCategory(e.target.value)
+        
+        
     }
 
     const handleSubmit = () => {
+        if(category ) {
+            query.set('name', name +', ' + category)
+            history.push({search:query.toString()})
+            console.log(history)
+            setCategory('')
 
-        query.set('name', name +', ' + category)
-        history.push({search:query.toString()})
+        }
+        
     }
     return (
         <div>
             <h1>CategoryPage</h1>
             <h2>Category: {name}</h2>
-            <input type ='text' name = 'category' value = {category} onChange ={handleChange}/>
+            <input 
+            type ='text' 
+            name = 'category' 
+            value = {category} 
+            onChange ={handleChange}/>
             <button onClick = {handleSubmit}>Next</button>
         </div>
     )
