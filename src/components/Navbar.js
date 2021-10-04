@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
 import '../index.css'
 
 export default function Navbar() {
@@ -6,13 +6,16 @@ export default function Navbar() {
         <nav>
             <ul>
                 <li>
-                    <NavLink exact to="/" activeClass='active'>Home</NavLink>
+                    <NavLink exact to="/" activeClassName='active'>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink axact to="/about" activeClass='active'>About</NavLink>
+                    <NavLink exact to="/about" activeClassName='active'>About</NavLink>
                 </li>
                 <li>
-                    <NavLink axact to="/contact" activeClass='active'>Contact</NavLink>
+                    <NavLink exact to="/contact" activeClassName='active'>Contact</NavLink>
+                </li>
+                <li>
+                    <NavLink exact to="/categories" activeClassName='active'>CategoryPage</NavLink>
                 </li>
             </ul>
         </nav>
