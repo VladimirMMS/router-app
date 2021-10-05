@@ -1,15 +1,22 @@
 import React from 'react'
-import { Redirect, Route } from 'react-router'
+import { Redirect, Route, useLocation } from 'react-router'
+import useAuth from '../auth/useAuth'
 
-const user = 1
+
 
 
 export default function PrivateRoute({component: Component, ...rest}) {
+
+    const {isLogged} = useAuth();
+    
+    const location = useLocation()
+
+
     return (
         <Route {...rest}>
-            { user ? <Component/>
+            { isLogged() ? <Component/>
             : 
-            <Redirect to= "/login"/>
+            <Redirect to= {{pathname:'/login', state: {from: location}}}/>
             }
             
         </Route>

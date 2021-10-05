@@ -12,8 +12,13 @@ const AuthProvider = ({children}) => {
         login() {
             setUser({id:1, username:'vladimir'})
         },
+        
         logout() {
             setUser(null)
+        },
+
+        isLogged() {
+            return !!user;
         }
     }
 
