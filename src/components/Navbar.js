@@ -4,7 +4,7 @@ import useAuth from '../auth/useAuth'
 
 export default function Navbar() {
 
-    const {logout} = useAuth()
+    const {logout, isLogged} = useAuth()
 
     return (
         <nav>
@@ -21,21 +21,35 @@ export default function Navbar() {
                 <li>
                     <NavLink exact to="/categories" activeClassName='active'>Category</NavLink>
                 </li>
-                <li>
-                    <NavLink exact to="/dashboard" activeClassName='active'>Dashboard</NavLink>
-                </li>
-                <li>
-                    <NavLink exact to="/payments" activeClassName='active'>Payments</NavLink>
-                </li>
-                <li>
-                    <NavLink exact to="/login" activeClassName='active'>Login</NavLink>
-                </li>
-                <li>
-                    <NavLink exact to="/register" activeClassName='active'>Register</NavLink>
-                </li>
-                <li>
-                    <button onClick = {()=>logout()}>Logout</button>
-                </li>
+                
+                {!isLogged() && (
+                    <>
+                        <li>
+                            <NavLink exact to="/login" activeClassName='active'>Login</NavLink>
+                        </li>
+                        <li>
+                            <NavLink exact to="/register" activeClassName='active'>Register</NavLink>
+                        </li>
+                    </>
+
+                )}
+                
+
+                {isLogged() && (
+                    <>
+                        <li>
+                            <NavLink exact to="/dashboard" activeClassName='active'>Dashboard</NavLink>
+                        </li>
+                        <li>
+                            <NavLink exact to="/payments" activeClassName='active'>Payments</NavLink>
+                        </li>
+                        <li>
+                        <button onClick = {()=>logout()}>Logout</button>
+                        </li>
+                    </>
+
+                )}
+                
                 
                 
             </ul>
